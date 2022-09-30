@@ -23,19 +23,9 @@ dbc_css = ("https://cdn.jsdelivr.net/gh/AnnMarieW/dash-bootstrap-templates@V1.0.
 external_scripts = [{'src': 'https://oss.sheetjs.com/sheetjs/xlsx.full.min.js'}]
 load_figure_template(["bootstrap","spacelab"])
 
-
-if platform.system() == 'Windows':
-    # url = 'local'
-    url = "http://localhost:15011/ara/valuation/runtime/get_items"
-    debug_state = True
-    app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP, dbc_css], suppress_callback_exceptions=True,
-                    title='ARA Valuation Database', external_scripts=external_scripts)
-else:
-    url = "http://localhost:15011/ara/valuation/runtime/get_items"
-    debug_state = False
-    app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP, dbc.icons.BOOTSTRAP, dbc_css],
-                    suppress_callback_exceptions=True, external_scripts=external_scripts,
-                    title='ARA Valuation Database', requests_pathname_prefix='/8050/', assets_url_path='/8050/')
+debug_state = True
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP, dbc_css], suppress_callback_exceptions=True,
+                title='ARA Valuation Database', external_scripts=external_scripts)
 
 ns = Namespace("dash_clientside", "clientside")
 
